@@ -1,9 +1,0 @@
-Flask
-catboost
-dill
-matplotlib
-numpy
-pandas
-scikit-learn
-seaborn
-xgboost
