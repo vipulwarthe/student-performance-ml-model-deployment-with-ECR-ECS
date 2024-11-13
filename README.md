@@ -153,9 +153,43 @@
 
 * First Launch the instace with ubuntu server and create the python environment and activate the environment.
 * install Docker and AWS CLI on your server and configure AWS with your secret key and access key.
-* Create one Repo in ECR - give any name - and use push commands and run on terminal so it will create the docker image and push into the ECR repo.
+* Create one Repo in ECR and use push commands and run on terminal so it will create the docker image and push into the ECR repo.
+
+-Go to the AWS ECR - 
+-Create private repository - Name - sp-repo 
+-Image tag mutability - Mutable 
+-Encryption settings - AES-256 - Create
+-select the repo and click on view push commands 
 
 * Now create ECS Cluster - give any name - 
+
+
+Commands that we need to use for this project:
+
+     1  sudo apt-get update
+     2  sudo apt install python3-venv -y
+     3  python3 -m venv MLPRO 
+     4  sudo vi docker.sh
+     5  sudo chmod +x docker.sh
+     6  ./docker.sh 
+     7  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+     8  sudo apt install unzip
+     9  unzip awscliv2.zip
+    10  sudo ./aws/install
+    11  /usr/local/bin/aws --version
+    12  aws configure    (add secret key and secret access key and region)
+    13  source MLPRO/bin/activate
+    14  git clone https://github.com/vipulwarthe/student-performance-ml-model-deployment-with-ECR-ECS.git
+    15  ls
+    16  cd student-performance-ml-model-deployment-with-ECR-ECS/
+  
+  * Add below push commands from ECR repo:
+    
+        17  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 717279727098.dkr.ecr.us-east-1.amazonaws.com
+        18  docker build -t sp-repo .
+        19  docker tag sp-repo:latest 717279727098.dkr.ecr.us-east-1.amazonaws.com/sp-repo:latest
+        20  docker push 717279727098.dkr.ecr.us-east-1.amazonaws.com/sp-repo:latest
+        21  docker images   (check the docker image)
 
 
 
