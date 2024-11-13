@@ -250,7 +250,15 @@
         21  docker images   (check the docker image)
 
 
+-First stop the task
 
+-Delete cluster
+
+-Delete Image and delete Repo
+
+-Delete IAM Role related to ECS
+
+-Terminate the EC2 instance
 
 
 
