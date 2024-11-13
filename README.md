@@ -163,8 +163,66 @@
 
 * Now create ECS Cluster - give any name - 
 
+-Go to ECS and create cluster - Cluster configuration
 
-Commands that we need to use for this project:
+-Cluster name - sp-cluster - Default namespace - optional
+
+-Infrastructure - AWS Farget (serverless) - other setting keep default (optional)
+
+-create  (it will take few minutes to create)
+
+-go to the task defination - create new task defination
+
+-Task definition configuration - Task definition family - new-sp-task
+
+-Infrastructure requirements - Launch type - AWS Farget
+
+-other configuration keep default
+
+-Task roles - conditional - () - Task execution role - create new role
+
+-container 1 - container details - Name - sp-repo - Image URI - (paste image uri from ecr repo) - Essential container - yes
+
+-Port mappings - add port - 5000 - TCP - HTTP 
+
+-Resource allocation limits - conditional - cpu -1 , GPU -1 , Memory hard limit - 3, memory soft limit-1
+
+-Environment variables - optional - Log collection - untick 
+
+-other setting optional keep as it is - create
+
+- you will see Task definition successfully created
+- 
+-Now click on Deploy - Run task
+
+-Create - Environment - Existing cluster - mycluster
+
+-Compute configuration (advanced) - Compute options - Capacity provider strategy
+
+-Capacity provider strategy - Use custom
+
+-capacity provider - FARGET - Platform - latest
+
+-Deployment configuration - Task 
+
+-Desired tasks - 1 - Task group - blank 
+
+-Networking - select default VPC/default subnets/
+
+-add existing security group
+
+-other setting keep default - create   (Task launched)
+
+-Now wait for Task status should be Running (refresh the task so it will running in state)
+
+-click and open running task it will show you the task overview page
+
+-copy the public IP and paste it in browser along with 5000 port and /predictdata
+
+-you will see your application successfully running on Microsoft edge browser.
+
+
+### Commands that we need to use for this project:
 
      1  sudo apt-get update
      2  sudo apt install python3-venv -y
@@ -190,6 +248,7 @@ Commands that we need to use for this project:
         19  docker tag sp-repo:latest 717279727098.dkr.ecr.us-east-1.amazonaws.com/sp-repo:latest
         20  docker push 717279727098.dkr.ecr.us-east-1.amazonaws.com/sp-repo:latest
         21  docker images   (check the docker image)
+
 
 
 
