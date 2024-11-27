@@ -227,8 +227,32 @@
 
      1  sudo apt-get update
      2  sudo apt install python3-venv -y
-     3  python3 -m venv MLPRO 
-     4  sudo vi docker.sh
+     3  python3 -m venv MLPRO
+        source MLPRO/bin/activate
+     4  sudo vi docker.sh     (Paste below cmds in docker.sh file and save and quit with Esc :wq)
+     
+        # Add Docker's official GPG key:
+        sudo apt-get update
+        sudo apt-get install ca-certificates curl
+        sudo install -m 0755 -d /etc/apt/keyrings
+        sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+        sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+        # Add the repository to Apt sources:
+        echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        sudo apt-get update
+        sudo apt install docker.io -y
+        docker --version
+        sudo usermod -aG docker $USER
+        sudo chown $USER /var/run/docker.sock
+        sudo systemctl start docker
+        sudo systemctl enable docker
+        sudo systemctl status docker
+
+     
      5  sudo chmod +x docker.sh
      6  ./docker.sh 
      7  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -237,7 +261,7 @@
     10  sudo ./aws/install
     11  /usr/local/bin/aws --version
     12  aws configure    (add secret key and secret access key and region)
-    13  source MLPRO/bin/activate
+    13  
     14  git clone https://github.com/vipulwarthe/student-performance-ml-model-deployment-with-ECR-ECS.git
     15  ls
     16  cd student-performance-ml-model-deployment-with-ECR-ECS/
