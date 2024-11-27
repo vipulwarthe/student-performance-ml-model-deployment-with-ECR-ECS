@@ -1,5 +1,5 @@
 # Student-Performance
-### deploy end to end student performance ML model with AWS elastic beanstock and codepipeline##
+### deploy end to end student performance ML model with AWS ECR and AWS ECS
 
     Krish naik Repo link: https://github.com/krishnaik06/mlproject/
     ARCHNA Repo link- https://github.com/swapnil123kapile/MLProjects-archana
