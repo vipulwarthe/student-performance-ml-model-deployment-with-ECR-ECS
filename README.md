@@ -156,33 +156,33 @@
 * install Docker and AWS CLI on your server and configure AWS with your secret key and access key.
 * Create one Repo in ECR and use push commands and run on terminal so it will create the docker image and push into the ECR repo.
 
--Go to the AWS ECR - 
+### Go to the AWS ECR - 
 -Create private repository - Name - sp-repo 
 -Image tag mutability - Mutable 
 -Encryption settings - AES-256 - Create
 -select the repo and click on view push commands 
 
-* Now create ECS Cluster - give any name - 
+### Now create ECS Cluster 
 
--Go to ECS and create cluster - Cluster configuration
+-> give any name -> Go to ECS and create cluster -> Cluster configuration -> Go to ECS and create cluster -> Cluster configuration
 
--Cluster name - sp-cluster - Default namespace - optional
+-> Cluster name -> sp-cluster -> Default namespace -> optional
 
--Infrastructure - AWS Farget (serverless) - other setting keep default (optional)
+-> Infrastructure -> AWS Farget (serverless) -> other setting keep default (optional)
 
--create  (it will take few minutes to create)
+-> create  (it will take few minutes to create)
 
--go to the task defination - create new task defination
+-> go to the task defination -> create new task defination
 
--Task definition configuration - Task definition family - new-sp-task
+-> Task definition configuration -> Task definition family -> new-sp-task
 
--Infrastructure requirements - Launch type - AWS Farget
+-> Infrastructure requirements -> Launch type -> AWS Farget
 
--other configuration keep default
+-> other configuration keep default
 
--Task roles - conditional - () - Task execution role - create new role
+-> Task roles -> conditional -> () -> Task execution role -> create new role
 
--container 1 - container details - Name - sp-repo - Image URI - (paste image uri from ecr repo) - Essential container - yes
+-> container 1 -> container details -> Name -> sp-repo -> Image URI - (paste image uri from ecr repo) - Essential container - yes
 
 -Port mappings - add port - 5000 - TCP - HTTP 
 
