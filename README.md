@@ -93,6 +93,7 @@
 ### Create "notebook" folder in mlproject & drag and drop below two ipynb notebook files in it.
 
 1 .EDA STUDENT PERFORMANCE.ipynb
+
 2 .MODEL TRAINING.ipynb
 
 ### Create folder named "data" in "notebook" folder & drag and drop below "stud.csv" file in it.
