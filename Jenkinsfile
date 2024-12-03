@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     environment {
-        AWS_CREDENTIALS_ID = 'aws-credentials'
-        ECR_REPOSITORY = 'student-performance-ml-model'
+        AWS_ACCOUNT_ID = '717279727098'
+        AWS_CREDENTIALS_ID = 'aws-cred'
+        ECR_REPOSITORY = 'student-performance'
         REGION = 'us-east-1'
         CLUSTER_NAME = 'student-performance-cluster'
         SERVICE_NAME = 'student-performance-service'
