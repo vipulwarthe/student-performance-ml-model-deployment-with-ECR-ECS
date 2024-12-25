@@ -81,8 +81,8 @@
 
 * Now run below command it will generate the logs
 
-      python3 src/logger.py              
-
+      python3 src/logger.py
+      pip install scikit-learn==1.1.3        (use below command before run data_ingestion.py file)
       git status
       git add .
       git commit -m "Logging and Exception"
