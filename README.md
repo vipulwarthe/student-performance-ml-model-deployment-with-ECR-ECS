@@ -192,8 +192,8 @@
 
 -other setting optional keep as it is - create
 
-- you will see Task definition successfully created
-- Now go to cluster and click on it - click on Task - Run new Task - 
+-you will see Task definition successfully created
+-Now go to cluster and click on it - click on Task - Run new Task - 
 -Now click on Deploy - Run task
 
 -Create - Environment - Existing cluster - mycluster
@@ -205,6 +205,8 @@
 -capacity provider - FARGET - Platform - latest
 
 -Deployment configuration - Task 
+
+-Family - new-sp-task  - Revision - 2 (latest) 
 
 -Desired tasks - 1 - Task group - blank 
 
