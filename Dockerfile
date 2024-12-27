@@ -1,24 +1,19 @@
-# Use the official Python image as the base
+# Use an official Python runtime as the base image
 FROM python:3.9-slim
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the contents of the repository to the working directory
-COPY . /app
+# Copy application code
+COPY . .
 
-# Install system dependencies (optional, modify if needed)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install Python dependencies
-RUN pip install --upgrade pip
+# Install dependencies
 RUN pip install -r requirements.txt
 
-# Expose any ports if needed (e.g., if running a web app)
-# EXPOSE 5000
+# Expose the application port
+EXPOSE 5000
 
-# Define the entrypoint command to run the app (replace 'main.py' with your entry file if different)
+# Command to run the application
 CMD ["python", "application.py"]
+
 
