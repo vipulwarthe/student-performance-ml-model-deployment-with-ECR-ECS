@@ -279,6 +279,8 @@
 
 -First stop the task
 
+-deregister the task defination - delete the task defination
+
 -Delete cluster
 
 -Delete Image and delete Repo
